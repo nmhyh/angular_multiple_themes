@@ -9,8 +9,10 @@ import { DOCUMENT } from '@angular/common';
 export class ThemeSwitchComponent {
   private static readonly DARK_THEME_BLUE_CLASS = 'dark-blue-theme';
   private static readonly DARK_THEME_PURPLE_CLASS = 'dark-purple-theme';
+  private static readonly LIGHT_DEFAULT_CLASS = 'light-default-theme';
   private static readonly LIGHT_DEEP_PURPLE_CLASS = 'light-deep-purple-theme';
   private static readonly themes: string[] = [
+    ThemeSwitchComponent.LIGHT_DEFAULT_CLASS,
     ThemeSwitchComponent.DARK_THEME_BLUE_CLASS,
     ThemeSwitchComponent.DARK_THEME_PURPLE_CLASS,
     ThemeSwitchComponent.LIGHT_DEEP_PURPLE_CLASS,
@@ -28,25 +30,12 @@ export class ThemeSwitchComponent {
       : ThemeSwitchComponent.DARK_THEME_LIGHT;
   }
 
-  public selectLightTheme(): void {
-    this.removeThemes();
-    this.theme = ThemeSwitchComponent.DARK_THEME_LIGHT;
-  }
-
-  public selectDarkBlueTheme(): void {
+  public selectLightDefaultTheme(): void {
     this.removeThemes();
     this.document.documentElement.classList.add(
-      ThemeSwitchComponent.DARK_THEME_BLUE_CLASS
+      ThemeSwitchComponent.LIGHT_DEFAULT_CLASS
     );
-    this.theme = ThemeSwitchComponent.DARK_THEME_DARK;
-  }
-
-  public selectDarkPurpleTheme(): void {
-    this.removeThemes();
-    this.document.documentElement.classList.add(
-      ThemeSwitchComponent.DARK_THEME_PURPLE_CLASS
-    );
-    this.theme = ThemeSwitchComponent.DARK_THEME_DARK;
+    this.theme = ThemeSwitchComponent.LIGHT_DEFAULT_CLASS;
   }
 
   public selectLightDeepPurpleTheme(): void {
@@ -54,7 +43,23 @@ export class ThemeSwitchComponent {
     this.document.documentElement.classList.add(
       ThemeSwitchComponent.LIGHT_DEEP_PURPLE_CLASS
     );
-    this.theme = ThemeSwitchComponent.DARK_THEME_LIGHT;
+    this.theme = ThemeSwitchComponent.LIGHT_DEEP_PURPLE_CLASS;
+  }
+
+  public selectDarkBlueTheme(): void {
+    this.removeThemes();
+    this.document.documentElement.classList.add(
+      ThemeSwitchComponent.DARK_THEME_BLUE_CLASS
+    );
+    this.theme = ThemeSwitchComponent.DARK_THEME_BLUE_CLASS;
+  }
+
+  public selectDarkPurpleTheme(): void {
+    this.removeThemes();
+    this.document.documentElement.classList.add(
+      ThemeSwitchComponent.DARK_THEME_PURPLE_CLASS
+    );
+    this.theme = ThemeSwitchComponent.DARK_THEME_PURPLE_CLASS;
   }
 
   public removeThemes(): void {

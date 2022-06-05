@@ -1,6 +1,20 @@
-<mat-button-toggle-group name="theme" aria-label="Theme Selection" [value]="theme">
-  <mat-button-toggle value="light" (click)="selectLightTheme()">Light Default</mat-button-toggle>
-  <mat-button-toggle value="light" (click)="selectLightDeepPurpleTheme()">Light Deep Purple</mat-button-toggle>
-  <mat-button-toggle value="dark" (click)="selectDarkBlueTheme()">Dark Blue</mat-button-toggle>
-  <mat-button-toggle value="dark" (click)="selectDarkPurpleTheme()">Dark Purple</mat-button-toggle>
+<mat-button-toggle-group
+  name="theme"
+  aria-label="Theme Selection"
+  [value]="theme"
+>
+  <mat-button-toggle value="light-default-theme" (click)="selectLightDefaultTheme()"
+    >Light Default</mat-button-toggle
+  >
+  <mat-button-toggle
+    value="light-deep-purple-theme"
+    (click)="selectLightDeepPurpleTheme()"
+    >Light Deep Purple
+  </mat-button-toggle>
+  <mat-button-toggle value="dark-blue-theme" (click)="selectDarkBlueTheme()"
+    >Dark Blue</mat-button-toggle
+  >
+  <mat-button-toggle value="dark-purple-theme" (click)="selectDarkPurpleTheme()"
+    >Dark Purple</mat-button-toggle
+  >
 </mat-button-toggle-group>

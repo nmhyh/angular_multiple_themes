@@ -50,9 +50,14 @@ $dark-purple-app-theme: mat-dark-theme((
   --app-primary-color: #{$primary-color};
 }
 
-:root {
+.light-default-theme {
   @include angular-material-color($light-app-theme);
   @include theme-colors($light-app-theme);
+}
+
+.light-deep-purple-theme {
+  @include angular-material-color($light-deep-purple-app-theme);
+  @include theme-colors($light-deep-purple-app-theme);
 }
 
 .dark-blue-theme {
@@ -63,11 +68,6 @@ $dark-purple-app-theme: mat-dark-theme((
 .dark-purple-theme {
   @include angular-material-color($dark-purple-app-theme);
   @include theme-colors($dark-purple-app-theme);
-}
-
-.light-deep-purple-theme {
-  @include angular-material-color($light-deep-purple-app-theme);
-  @include theme-colors($light-deep-purple-app-theme);
 }
 
 body {
