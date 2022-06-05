@@ -1,0 +1,75 @@
+@import '~@angular/material/theming';
+
+@include mat-core();
+
+$light-app-theme: mat-light-theme((
+  color: (
+    primary: mat-palette($mat-indigo),
+    accent: mat-palette($mat-pink, A200, A100, A400),
+    warn: mat-palette($mat-red),
+  )
+));
+
+// Define an alternate light blue theme.
+$light-deep-purple-app-theme: mat-light-theme((
+  color: (
+    primary: mat-palette($mat-deep-purple),
+    accent: mat-palette($mat-amber, A200, A100, A400),
+    warn: mat-palette($mat-red),
+  )
+));
+
+// Define an alternate dark blue theme.
+$dark-blue-app-theme: mat-dark-theme((
+  color: (
+    primary: mat-palette($mat-cyan),
+    accent: mat-palette($mat-blue-gray, A200, A100, A400),
+    warn: mat-palette($mat-amber),
+  )
+));
+
+// Define an alternate dark purple theme.
+$dark-purple-app-theme: mat-dark-theme((
+  color: (
+    primary: mat-palette($mat-purple),
+    accent: mat-palette($mat-green, A200, A100, A400),
+    warn: mat-palette($mat-red),
+  )
+));
+
+@mixin theme-colors($theme) {
+  $_background: map-get($theme, background);
+  $_foreground: map-get($theme, foreground);
+  $_primary: map-get($theme, primary);
+  $background-color: mat-color($_background, background);
+  $foreground-color: mat-color($_foreground, text);
+  $primary-color: mat-color($_primary);
+  --app-background-color: #{$background-color};
+  --app-background-dark-color: #{darken($background-color, 10%)};
+  --app-foreground-color: #{$foreground-color};
+  --app-primary-color: #{$primary-color};
+}
+
+:root {
+  @include angular-material-color($light-app-theme);
+  @include theme-colors($light-app-theme);
+}
+
+.dark-blue-theme {
+  @include angular-material-color($dark-blue-app-theme);
+  @include theme-colors($dark-blue-app-theme);
+}
+
+.dark-purple-theme {
+  @include angular-material-color($dark-purple-app-theme);
+  @include theme-colors($dark-purple-app-theme);
+}
+
+.light-deep-purple-theme {
+  @include angular-material-color($light-deep-purple-app-theme);
+  @include theme-colors($light-deep-purple-app-theme);
+}
+
+body {
+  background-color: var(--app-background-color);
+}
