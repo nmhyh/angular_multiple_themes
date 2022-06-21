@@ -15,7 +15,7 @@ import { MatMenuModule } from "@angular/material/menu";
 @NgModule({
   declarations: [AppComponent, ThemeSwitchComponent, TeapotComponent],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     BrowserAnimationsModule,
     MatCardModule,
